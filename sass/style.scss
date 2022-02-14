@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap');
+@import './breakpoints';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// COLORS
+// primary color
+$red: hsl(0, 100%, 68%);
+
+// neutral colors
+$veryDarkBlue: hsl(230, 29%, 20%);
+$darkGrayisBlue: hsl(230, 11%, 40%);
+$grayishBlue: hsl(231, 7%, 65%);
+$lightGrayishBlue: hsl(207, 33%, 95%);
+
+// FONTS
+$pryFont: 'Barlow', sans-serif;
+$secFont: 'Barlow Condensed', sans-serif;
+
+body {
+  -webkit-text-size-adjust: 100%;
+  font-family: $pryFont;
+  line-height: 1.5;
+}
