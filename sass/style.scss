@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;500;700&display=swap');
 @import './breakpoints';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 // COLORS
@@ -16,6 +17,7 @@ $veryDarkBlue: hsl(230, 29%, 20%);
 $darkGrayisBlue: hsl(230, 11%, 40%);
 $grayishBlue: hsl(231, 7%, 65%);
 $lightGrayishBlue: hsl(207, 33%, 95%);
+$white: #fff;
 
 // FONTS
 $pryFont: 'Barlow', sans-serif;
@@ -25,4 +27,272 @@ body {
   -webkit-text-size-adjust: 100%;
   font-family: $pryFont;
   line-height: 1.5;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  padding: 0 1rem;
+
+  @include landscape {
+    width: 576px;
+    margin: 0 auto;
+  }
+
+  @include medium {
+    width: 768px;
+  }
+}
+
+// HEADER SECTION
+.header {
+  height: 100vh;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 70%;
+    width: 50%;
+    background-color: $lightGrayishBlue;
+    z-index: -1;
+    border-bottom-left-radius: 3rem;
+  }
+
+  &__content {
+    position: relative;
+    padding-top: 1.188rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-icon {
+    background-image: url(../images/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+
+    @include medium {
+      display: none;
+    }
+  }
+
+  .menu-icon.active {
+    background-image: url(../images/icon-close.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+  }
+
+  // Nav
+  .nav {
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: $white;
+    font-family: $secFont;
+    text-align: center;
+    box-shadow: -3px 5px 5px rgba(0, 0, 0, 0.3);
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+
+    @include medium {
+      max-height: unset;
+      overflow: visible;
+      position: static;
+      background-color: transparent;
+      box-shadow: unset;
+      text-align: right;
+      transform: unset;
+    }
+
+    &__menu {
+      padding: 0.938rem 0;
+
+      @include medium {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      li:not(:last-child) {
+        padding-bottom: 0.938rem;
+
+        @include medium {
+          padding-bottom: 0;
+        }
+      }
+
+      a {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      &--link {
+        color: $veryDarkBlue;
+
+        @include medium {
+          margin-right: 2rem;
+        }
+      }
+
+      .pricing {
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 90%;
+          transform: translateX(-50%);
+          height: 1px;
+          background-color: $veryDarkBlue;
+
+          @include medium {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &__cta {
+      padding-top: 0.938rem;
+      color: $grayishBlue;
+
+      @include medium {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .nav.maxHeight {
+    max-height: 186px;
+  }
+}
+
+// HERO SECTION
+.hero {
+  height: 50%;
+  padding-top: 2.063rem;
+
+  &__content {
+    height: 100%;
+  }
+
+  &__bg--container {
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 9rem;
+  }
+
+  &__bg {
+    background-image: url(../images/illustration-devices.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left top;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    @include landscape {
+      background-size: contain;
+      background-position: center;
+    }
+  }
+
+  &__text {
+    padding-bottom: 3rem;
+    font-family: $secFont;
+
+    &--content {
+      max-width: 300px;
+
+      .new {
+        display: inline-block;
+        color: $white;
+        background-color: $veryDarkBlue;
+        border-radius: 1.25rem;
+        margin-right: 0.5rem;
+        padding: 0.1rem 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .mono {
+        letter-spacing: 3px;
+        font-size: 1.1rem;
+        color: $darkGrayisBlue;
+      }
+    }
+
+    &--subtitle {
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    &--title {
+      font-size: 2.5rem;
+      line-height: 1;
+      text-transform: uppercase;
+      color: $veryDarkBlue;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $darkGrayisBlue;
+      font-size: 1.125rem;
+    }
+  }
+
+  &__buttons {
+    padding-top: 1.188rem;
+    text-transform: uppercase;
+
+    &--pry {
+      background-color: $red;
+      color: $white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.3rem;
+      margin-right: 0.725rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    &--sec {
+      letter-spacing: 2px;
+      color: $darkGrayisBlue;
+    }
+  }
 }

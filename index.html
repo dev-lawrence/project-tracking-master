@@ -18,30 +18,45 @@
           <!-- NAV MENU -->
           <nav class="nav">
             <ul class="nav__menu">
-              <li><a href="#"> Product</a></li>
-              <li><a href="#"> Features</a></li>
-              <li><a href="#"> Pricing</a></li>
-              <li><a href="#" class="dot line"></a></li>
+              <li><a href="#" class="nav__menu--link"> Product</a></li>
+              <li><a href="#" class="nav__menu--link"> Features</a></li>
+              <li class="pricing">
+                <a href="#" class="nav__menu--link"> Pricing</a>
+              </li>
+              <!-- <li><a href="#" class="dot line"></a></li> -->
               <li><a href="#" class="nav__cta"> Login</a></li>
             </ul>
           </nav>
+
+          <!-- NAV BAR -->
+          <div class="menu-icon"></div>
         </div>
       </div>
 
       <!-- HERO SECTION -->
       <section class="hero">
-        <div class="hero__content">
-          <div class="hero__bg"></div>
-
-          <div class="hero__text">
-            <h3 class="hero__text--subtitle">
-              <span>New</span> Monograph Dashboard
-            </h3>
-            <h1 class="hero__text--title">Powerful insights into your team</h1>
-            <p>Project planning and time tracking for agile teams</p>
-            <div class="buttons">
-              <a href="#" class="btn-pry"> Schedule a demo</a>
-              <a href="#" class="sec-pry"> to see a live preview</a>
+        <div class="hero__content grid">
+          <div class="hero__bg--container">
+            <div class="hero__bg"></div>
+          </div>
+          <div class="container">
+            <div class="hero__text">
+              <div class="hero__text--content">
+                <div class="hero__text--subtitle">
+                  <span class="new">New</span
+                  ><span class="mono"> Monograph Dashboard</span>
+                </div>
+                <h1 class="hero__text--title">
+                  Powerful insights into your team
+                </h1>
+                <p>Project planning and time tracking for agile teams</p>
+              </div>
+              <div class="hero__buttons">
+                <a href="#" class="hero__buttons--pry"> Schedule a demo</a>
+                <a href="#" class="hero__buttons--sec">
+                  to see a live preview</a
+                >
+              </div>
             </div>
           </div>
         </div>
