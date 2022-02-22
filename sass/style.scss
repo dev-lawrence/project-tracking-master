@@ -40,7 +40,6 @@ li {
 
 img {
   width: 100%;
-  height: auto;
 }
 
 .container {
@@ -54,11 +53,22 @@ img {
   @include medium {
     width: 768px;
   }
+
+  @include large {
+    width: 1000px;
+  }
+
+  @include extra-large {
+    width: 1200px;
+  }
+
+  @include huge {
+    width: 1440px;
+  }
 }
 
 // HEADER SECTION
 .header {
-  height: 100vh;
   position: relative;
 
   &:after {
@@ -66,7 +76,7 @@ img {
     position: absolute;
     top: 0;
     right: 0;
-    height: 70%;
+    height: 500px;
     width: 50%;
     background-color: $lightGrayishBlue;
     z-index: -1;
@@ -195,43 +205,82 @@ img {
   }
 }
 
-// HERO SECTION
+/// HERO SECTION ///
 .hero {
-  height: 50%;
-  padding-top: 2.063rem;
+  //   padding-top: 4.063rem;
+  //   overflow-x: hidden;
+
+  // &__container {
+  //   // @include large {
+  //   //   width: 1000px;
+  //   //   margin-right: auto;
+  //   // }
+
+  //   @include large {
+  //     grid-row: 1/2;
+  //   }
+  // }
+
+  @include large {
+    .grid {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      gap: 1.5rem;
+      width: 100%;
+      place-items: center;
+    }
+  }
 
   &__content {
-    height: 100%;
-  }
-
-  &__bg--container {
-    height: 100%;
     overflow: hidden;
-    margin-bottom: 9rem;
-  }
 
-  &__bg {
-    background-image: url(../images/illustration-devices.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left top;
-    height: 100%;
-    width: 100%;
-    position: relative;
+    &--bg {
+      position: relative;
+      width: 600px;
+      height: 500px;
+      margin: 0 auto;
 
-    @include landscape {
-      background-size: contain;
-      background-position: center;
+      @include large {
+        margin: 0;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 3rem;
+        left: -1rem;
+        background-image: url(../images/illustration-devices.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+
+        @include large {
+          left: 6rem;
+        }
+      }
     }
   }
 
   &__text {
-    padding-bottom: 3rem;
+    padding: 0 1rem 3rem;
     font-family: $secFont;
 
-    &--content {
-      max-width: 300px;
+    // @include landscape {
+    //   width: 70%;
+    //   max-width: 400px;
+    //   margin: 0 auto;
+    // }
 
+    @include large {
+      margin-left: auto;
+    }
+
+    @include large {
+      grid-row: 1/2;
+    }
+
+    &--content {
       .new {
         display: inline-block;
         color: $white;
@@ -257,7 +306,7 @@ img {
 
     &--title {
       font-size: 2.5rem;
-      line-height: 1;
+      line-height: 1.1;
       text-transform: uppercase;
       color: $veryDarkBlue;
       font-weight: 700;

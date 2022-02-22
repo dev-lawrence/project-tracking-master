@@ -23,7 +23,6 @@ li {
 
 img {
   width: 100%;
-  height: auto;
 }
 
 .container {
@@ -43,8 +42,25 @@ img {
   }
 }
 
+@media (min-width: 1024px) {
+  .container {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
+}
+
 .header {
-  height: 100vh;
   position: relative;
 }
 
@@ -53,7 +69,7 @@ img {
   position: absolute;
   top: 0;
   right: 0;
-  height: 70%;
+  height: 500px;
   width: 50%;
   background-color: #eef3f6;
   z-index: -1;
@@ -194,45 +210,66 @@ img {
   max-height: 186px;
 }
 
-.hero {
-  height: 50%;
-  padding-top: 2.063rem;
+@media (min-width: 1024px) {
+  .hero .grid {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    place-items: center;
+  }
 }
 
 .hero__content {
-  height: 100%;
-}
-
-.hero__bg--container {
-  height: 100%;
   overflow: hidden;
-  margin-bottom: 9rem;
 }
 
-.hero__bg {
+.hero__content--bg {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .hero__content--bg {
+    margin: 0;
+  }
+}
+
+.hero__content--bg::after {
+  content: '';
+  position: absolute;
+  top: 3rem;
+  left: -1rem;
   background-image: url(../images/illustration-devices.svg);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left top;
-  height: 100%;
+  background-size: contain;
   width: 100%;
-  position: relative;
+  height: 100%;
 }
 
-@media (min-width: 576px) {
-  .hero__bg {
-    background-size: contain;
-    background-position: center;
+@media (min-width: 1024px) {
+  .hero__content--bg::after {
+    left: 6rem;
   }
 }
 
 .hero__text {
-  padding-bottom: 3rem;
+  padding: 0 1rem 3rem;
   font-family: "Barlow Condensed", sans-serif;
 }
 
-.hero__text--content {
-  max-width: 300px;
+@media (min-width: 1024px) {
+  .hero__text {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__text {
+    grid-row: 1/2;
+  }
 }
 
 .hero__text--content .new {
@@ -259,7 +296,7 @@ img {
 
 .hero__text--title {
   font-size: 2.5rem;
-  line-height: 1;
+  line-height: 1.1;
   text-transform: uppercase;
   color: #242942;
   font-weight: 700;
