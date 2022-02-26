@@ -175,9 +175,9 @@ img {
           border-bottom: 1.5px solid transparent;
           transition: border-bottom 0.3s ease-in-out;
 
-          // &:hover {
-          //   border-color: $darkGrayisBlue;
-          // }
+          &:hover {
+            border-color: $darkGrayisBlue;
+          }
         }
       }
 
