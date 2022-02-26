@@ -6,8 +6,10 @@
   scroll-behavior: smooth;
 }
 
-html {
-  overflow-x: hidden;
+@media (min-width: 1024px) {
+  html {
+    overflow-x: hidden;
+  }
 }
 
 body {
@@ -176,9 +178,6 @@ img {
     line-height: 1;
     border-bottom: 1.5px solid transparent;
     transition: border-bottom 0.3s ease-in-out;
-  }
-  .header .nav__menu a:hover {
-    border-color: #5b5f71;
   }
 }
 
@@ -367,6 +366,7 @@ img {
 }
 
 .hero__buttons--pry {
+  position: relative;
   background-color: #ff5c5c;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -375,11 +375,22 @@ img {
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
-  transition: opacity 0.3s ease-in-out;
 }
 
-.hero__buttons--pry:hover {
-  opacity: 0.6;
+.hero__buttons--pry::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.hero__buttons--pry:hover:after {
+  opacity: 0.3;
 }
 
 .hero__buttons--sec {

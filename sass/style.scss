@@ -9,7 +9,9 @@
 }
 
 html {
-  overflow-x: hidden;
+  @include large {
+    overflow-x: hidden;
+  }
 }
 
 // COLORS
@@ -173,9 +175,9 @@ img {
           border-bottom: 1.5px solid transparent;
           transition: border-bottom 0.3s ease-in-out;
 
-          &:hover {
-            border-color: $darkGrayisBlue;
-          }
+          // &:hover {
+          //   border-color: $darkGrayisBlue;
+          // }
         }
       }
 
@@ -344,6 +346,7 @@ img {
     text-transform: uppercase;
 
     &--pry {
+      position: relative;
       background-color: $red;
       color: $white;
       padding: 0.5rem 1rem;
@@ -352,10 +355,21 @@ img {
       font-weight: 500;
       font-size: 0.9rem;
       letter-spacing: 0.5px;
-      transition: opacity 0.3s ease-in-out;
 
-      &:hover {
-        opacity: 0.6;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $white;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover:after {
+        opacity: 0.3;
       }
     }
 
